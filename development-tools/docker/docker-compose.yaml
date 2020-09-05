@@ -1,0 +1,8 @@
+version: "3.0"
+services:
+  nginx:
+    build: ../..
+    ports:
+      - "5554:80"
+    environment:
+      - OAUTHLIB_INSECURE_TRANSPORT=1

@@ -16,6 +16,6 @@ oauth.fetch_token(token_url=token_url, client_id=client_id,
         client_secret=client_secret)
 
 tools.sed(
-    'proxy_set_header Authorization: Bearer .*;',
-    'proxy_set_header Authorization: Bearer ' + oauth.access_token + ';',
+    "proxy_set_header Authorization: 'Bearer xyz';",
+    "proxy_set_header Authorization: 'Bearer " + oauth.access_token + "';",
     nginx_config_file)
