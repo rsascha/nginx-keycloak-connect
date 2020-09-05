@@ -11,7 +11,7 @@ COPY  --chown=nginx:nginx docker/etc/nginx/templates /etc/nginx/templates
 
 COPY --chown=nginx:nginx docker/tools.py /
 COPY --chown=nginx:nginx docker/update-nginx.py /
-COPY --chown=nginx:nginx docker/docker-entrypoint.d/15-update-nginx.sh /docker-entrypoint.d/
+COPY --chown=nginx:nginx docker/docker-entrypoint.d/50-update-nginx.sh /docker-entrypoint.d/
 
 #ENTRYPOINT ["/update-nginx.py"]
 #CMD ["nginx", "-g", "daemon off;"]
