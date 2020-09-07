@@ -1,37 +1,25 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { GrantManager } from 'keycloak-auth-utils';
+import { Injectable, Logger, HttpService } from '@nestjs/common';
+
 @Injectable()
 export class AppService {
   private logger: Logger;
 
-  constructor() {
+  constructor(private http: HttpService) {
     this.logger = new Logger("AppService");
   }
 
-  getHello(token: string): string {
+  private config = {
+    realmUrl: "http://172.18.0.1:8080/auth/realms/master",
+    clientId: "webservice-nest",
+    secret: "4e70e485-470a-4976-8cb0-bce9808e4257",
+  };
 
-    // {
-    //   "realm": "master",
-    //   "auth-server-url": "http://localhost:8080/auth/",
-    //   "ssl-required": "external",
-    //   "resource": "nginx-proxy",
-    //   "credentials": {
-    //     "secret": "5cbb59bd-e353-4528-889d-253f05ed7fc7"
-    //   },
-    //   "confidential-port": 0
-    // }
+  getHello(tokenStr: string): string {
 
-    const config = {
-      realmUrl: "http://172.18.0.1:8080/auth/realms/master",
-      clientId: "nginx-proxy",
-      secret: "5cbb59bd-e353-4528-889d-253f05ed7fc7",
-    };
+    this.logger.log(`Receive request with: '${tokenStr}'`);
 
-    this.logger.log(`Receive request with ${token}`);
-    const gm = new GrantManager(config);
-    const result = gm.validateAccessToken(token);
-    this.logger.log(`Result ${result}`);
 
-    return result;
+
+    return "OK";
   }
 }

@@ -5,4 +5,7 @@ services:
     ports:
       - "5554:8080"
     environment:
+      - OID_CLIENT_ID=nginx-proxy
+      - OID_TOKEN_URL=http://172.18.0.1:8080/auth/realms/master/protocol/openid-connect/token
+      - OID_TOKEN=0f74e143-b7f0-4ab8-9037-8ad67115ac75
       - OAUTHLIB_INSECURE_TRANSPORT=1 # Switch off https for local development

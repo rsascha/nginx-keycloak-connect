@@ -1,75 +1,65 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Get Public Key
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+```sh
+curl http://localhost:8080/auth/realms/master/protocol/openid-connect/certs
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```json
+{
+  "keys": [
+    {
+      "kid": "MJ3A8JC_x5RB1WhGyAf0AnS9BpntrimpW8OQP-FXFrM",
+      "kty": "RSA",
+      "alg": "RS256",
+      "use": "sig",
+      "n": "mNTOZ8D-DzM5jVyvjkzLbty0yzsquZKX3F2ClUMz5qpviUyk4HzV7fdAyMYjINoiZQLXVrGQb2UZz4ieLvcvDeFOmoKyxQegt7diwhJWo1_DagaOveHrFCF5ETLFAUQLNi9h4F1Gw3ht77H-c9EackLC-PI-5CdP5I1jShhQlCbMM5j2Z__1iabpNaESJGtJW_jSW5ekV_2bEMbqq7Fpp5_Nc6bmi2_APK3Yz_wpVdnSeFZW_6XdB2amZD9MjTUw1m15kPgOP6o4ugAaEh7mqkkC2n1yofFcc0-fbOb-_2JRr6Q0r8bVGBmTLubGm2I13PwkyCFf79UmdWhLlaAkaQ",
+      "e": "AQAB",
+      "x5c": [
+        "MIICmzCCAYMCBgF0YnrkMjANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZtYXN0ZXIwHhcNMjAwOTA2MDgxMjM1WhcNMzAwOTA2MDgxNDE1WjARMQ8wDQYDVQQDDAZtYXN0ZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCY1M5nwP4PMzmNXK+OTMtu3LTLOyq5kpfcXYKVQzPmqm+JTKTgfNXt90DIxiMg2iJlAtdWsZBvZRnPiJ4u9y8N4U6agrLFB6C3t2LCElajX8NqBo694esUIXkRMsUBRAs2L2HgXUbDeG3vsf5z0RpyQsL48j7kJ0/kjWNKGFCUJswzmPZn//WJpuk1oRIka0lb+NJbl6RX/ZsQxuqrsWmnn81zpuaLb8A8rdjP/ClV2dJ4Vlb/pd0HZqZkP0yNNTDWbXmQ+A4/qji6ABoSHuaqSQLafXKh8VxzT59s5v7/YlGvpDSvxtUYGZMu5sabYjXc/CTIIV/v1SZ1aEuVoCRpAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAA3h0xZzqqZivLoSCxdpxA3EKeHVJaFy2yyWbqF4krdQl0FCc77Pm0dAs6IUR7gDANopJuB9lGx/Wbok7rt3LG+6bpWfJMlkJ0iqXFOiBFCF1NpW/RV9zvDr+JMO6IjAWdHSWNgt7xLxjHKYanzRlQjm5I+zxdo0nn575HVaSkoFuWmVfLkplQ4UYOD2T0RfFwdBhoBz1TYTzIrLsRoL0Jjt2G1EIu0sy+Pk6vkQchDjwVkEQWoVApTNQtkjkJ2ejYguSNJbXDaHfP0GwPnIeQrXFJA2ayp43bmOnScN4XtZUYaVSlw6kMrxMBXEko+wCXJBIYCMq+JdacKFxydw6L0="
+      ],
+      "x5t": "FzNvl9mf_oKuJoHpYMECl-HvFP8",
+      "x5t#S256": "KzgbROzKs23sK3ISpqhaZYbzwdLnHlcuJDNI0DDEx_o"
+    }
+  ]
+}
 ```
 
-## Test
+## webservice-nest Secret
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```json
+{
+  "realm": "master",
+  "auth-server-url": "http://localhost:8080/auth/",
+  "ssl-required": "external",
+  "resource": "webservice-nest",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "4e70e485-470a-4976-8cb0-bce9808e4257"
+  },
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}
 ```
 
-## Support
+##
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```plain
+[AppService] Receive request with: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNSjNBOEpDX3g1UkIxV2hHeUFmMEFuUzlCcG50cmltcFc4T1FQLUZYRnJNIn0.eyJleHAiOjE1OTkzODE5MzQsImlhdCI6MTU5OTM4MTg3NCwianRpIjoiYWY3YTJmYTYtYzFjZC00NzNkLTljYjktZjBlYWIxN2RmNTE1IiwiaXNzIjoiaHR0cDovLzE3Mi4xOC4wLjE6ODA4MC9hdXRoL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOTRkN2RlNGUtNDY1Ni00OGFkLWI2NzItM2YwZDk1YmYwZDc0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibmdpbngtcHJveHkiLCJzZXNzaW9uX3N0YXRlIjoiZDFjNjkzMjEtZDFhNy00MjkyLWE5NDgtYmIwMjAyMDZmODVhIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRJZCI6Im5naW54LXByb3h5IiwiY2xpZW50SG9zdCI6IjE3Mi4xNy4wLjEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtbmdpbngtcHJveHkiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE3LjAuMSJ9.PmFjBxTagnpbA5WSbkD1nhw4QnggunXfh4XYSiYYuTlZ-MO8DRSeIqioC7PssHiJmq3IsOdhMZfzFwhdTSzw1EIIvkmTEtog158uyV9Px_bbuMhMewoMLBBOm5LPUO8E1hO8M9Wari9d0Khx7QCVKOBWkKaQ1X8LrWEc9M5OXrl5mUlXq2mxssuR9ZwsBOoOrAsHdjPxEXTCZEjtkrAtmRN0uicf-UWftpFqFZTpquF_iNkuOINuaaDJ_5jGI8wtK_npmS5V-Ba2vUj9QHN03URxR-lHDYO_wwmTK06-gvKwjvNZjz1kTAlChBAq_7h84pQ8cHHfNsVl80DK3cc9vA'
+```
 
-## Stay in touch
+## Verify Token
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+curl -v \
+  -d "client_secret=4e70e485-470a-4976-8cb0-bce9808e4257" \
+  -d "client_id=webservice-nest" \
+  -d "username=admin" \
+  -d "token=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNSjNBOEpDX3g1UkIxV2hHeUFmMEFuUzlCcG50cmltcFc4T1FQLUZYRnJNIn0.eyJleHAiOjE1OTkzODE5MzQsImlhdCI6MTU5OTM4MTg3NCwianRpIjoiYWY3YTJmYTYtYzFjZC00NzNkLTljYjktZjBlYWIxN2RmNTE1IiwiaXNzIjoiaHR0cDovLzE3Mi4xOC4wLjE6ODA4MC9hdXRoL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOTRkN2RlNGUtNDY1Ni00OGFkLWI2NzItM2YwZDk1YmYwZDc0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibmdpbngtcHJveHkiLCJzZXNzaW9uX3N0YXRlIjoiZDFjNjkzMjEtZDFhNy00MjkyLWE5NDgtYmIwMjAyMDZmODVhIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRJZCI6Im5naW54LXByb3h5IiwiY2xpZW50SG9zdCI6IjE3Mi4xNy4wLjEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtbmdpbngtcHJveHkiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE3LjAuMSJ9.PmFjBxTagnpbA5WSbkD1nhw4QnggunXfh4XYSiYYuTlZ-MO8DRSeIqioC7PssHiJmq3IsOdhMZfzFwhdTSzw1EIIvkmTEtog158uyV9Px_bbuMhMewoMLBBOm5LPUO8E1hO8M9Wari9d0Khx7QCVKOBWkKaQ1X8LrWEc9M5OXrl5mUlXq2mxssuR9ZwsBOoOrAsHdjPxEXTCZEjtkrAtmRN0uicf-UWftpFqFZTpquF_iNkuOINuaaDJ_5jGI8wtK_npmS5V-Ba2vUj9QHN03URxR-lHDYO_wwmTK06-gvKwjvNZjz1kTAlChBAq_7h84pQ8cHHfNsVl80DK3cc9vA" \
+  http://localhost:8080/auth/realms/master/protocol/openid-connect/token/introspect
 
-## License
-
-  Nest is [MIT licensed](LICENSE).
+curl -v \
+  -d "client_secret=4e70e485-470a-4976-8cb0-bce9808e4257" \
+  -d "client_id=webservice-nest" \
+  -d "username=admin" \
+  -d "token=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNSjNBOEpDX3g1UkIxV2hHeUFmMEFuUzlCcG50cmltcFc4T1FQLUZYRnJNIn0.eyJleHAiOjE1OTk0MDMyNjEsImlhdCI6MTU5OTQwMzIwMSwianRpIjoiNTViNzQwYTQtYzU5NC00ZDc4LWFkMDMtZDVkMTI0YzhjZjg3IiwiaXNzIjoiaHR0cDovLzE3Mi4xOC4wLjE6ODA4MC9hdXRoL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiOTRkN2RlNGUtNDY1Ni00OGFkLWI2NzItM2YwZDk1YmYwZDc0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibmdpbngtcHJveHkiLCJzZXNzaW9uX3N0YXRlIjoiZWM4OWJmNGItOGZmNC00YjdjLTgzMTAtOTlkY2I1NjhiODdlIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRJZCI6Im5naW54LXByb3h5IiwiY2xpZW50SG9zdCI6IjE3Mi4xNy4wLjEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtbmdpbngtcHJveHkiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE3LjAuMSJ9.Ue-nniVe8x56PePwTlmjIdJjjjlOnw3AHnN8pPbmOFiP9TNLBD7XTCmF6SkMAFSCZwGlhC55xFQGGjesEP3XCPLZjPMqNEJoFiA4hGowA9NCJhYzHdxAer4BdIaZdfaXaVuyCXoSpWi2do8cvoEAGFB5C88RXKN4_pZg_fvYRG9hwZiSsNVFA-NznxCxa1CIXuwuEac8DiyFJjKf1hZ--5bafVD-63OL2zQCM46HOYZo93sAfRVLNYEZcfDSEJ6DNvMvsanuzzR0qpp4g3RazeOiBOnw-xZYnJzLbvAIxm3zPAkQxrvk3Wdh2iiNVDV_OkLv57imtsJrHYRrQpYTJw" \
+  http://localhost:8080/auth/realms/master/protocol/openid-connect/token/introspect

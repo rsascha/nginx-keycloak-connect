@@ -6,9 +6,9 @@ import os
 import tools
 
 # TODO: Add env support using os.environ['DEBUSSY']
-client_id           = 'nginx-proxy'
-token_url           = 'http://172.18.0.1:8080/auth/realms/master/protocol/openid-connect/token'
-client_secret       = '5cbb59bd-e353-4528-889d-253f05ed7fc7'
+client_id           = os.environ['OID_CLIENT_ID']
+token_url           = os.environ['OID_TOKEN_URL']
+client_secret       = os.environ['OID_TOKEN']
 nginx_config_file   = 'etc/nginx/conf.d/default.conf'
 
 client = BackendApplicationClient(client_id=client_id)
@@ -17,6 +17,6 @@ oauth.fetch_token(token_url=token_url, client_id=client_id,
         client_secret=client_secret)
 
 tools.sed(
-    "proxy_set_header Authorization: 'Bearer xyz';",
-    "proxy_set_header Authorization: 'Bearer " + oauth.access_token + "';",
+    "proxy_set_header Authorization 'Bearer xyz';",
+    "proxy_set_header Authorization 'Bearer " + oauth.access_token + "';",
     nginx_config_file)
